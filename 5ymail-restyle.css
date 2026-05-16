@@ -1,0 +1,706 @@
+/* ============================================================
+   5yMail — Modern Minimal Restyle
+   Link this AFTER all existing <link> stylesheets in <head>:
+   <link rel="stylesheet" href="5ymail-restyle.css" />
+   ============================================================ */
+
+/* --- Tokens ------------------------------------------------- */
+:root {
+  --bg:        #f0f4f8;
+  --surface:   #ffffff;
+  --border:    #e2e8f0;
+  --primary:   #2563eb;
+  --primary-d: #1d4ed8;
+  --text:      #1e293b;
+  --muted:     #64748b;
+  --subtle:    #94a3b8;
+  --danger:    #ef4444;
+  --disabled:  #f8fafc;
+  --radius:    8px;
+  --font:      -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --shadow:    0 1px 4px rgba(0,0,0,0.07);
+}
+
+/* --- Foundation --------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font);
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--bg);
+}
+
+a { color: var(--primary); }
+a:hover { color: var(--primary-d); }
+
+hr.accessibility { display: none !important; }
+
+/* --- Wrapper ----------------------------------------------- */
+#wrapper {
+  max-width: 1280px;
+  margin: 0 auto;
+  background: var(--bg);
+}
+
+/* --- Header ------------------------------------------------- */
+#header {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 24px;
+  display: flex !important;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  box-shadow: var(--shadow);
+  float: none !important;
+  width: auto !important;
+}
+
+#logo {
+  float: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  flex-shrink: 0;
+}
+
+#logo img {
+  height: 44px;
+  width: auto;
+  display: block;
+}
+
+.info {
+  flex: 1;
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.4;
+  min-width: 160px;
+  float: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+#login {
+  float: none !important;
+  margin: 0 !important;
+  flex-shrink: 0;
+}
+
+#login img {
+  height: 34px;
+  width: auto;
+  display: block;
+  border-radius: 6px;
+}
+
+#icones {
+  float: none !important;
+  margin: 0 !important;
+  flex-shrink: 0;
+}
+
+#icones .lang {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+#icones .lang a { line-height: 0; }
+
+#icones .lang img {
+  height: 18px;
+  width: auto;
+  border-radius: 2px;
+  opacity: 0.75;
+  transition: opacity 0.15s;
+  border: none !important;
+}
+
+#icones .lang img:hover { opacity: 1; }
+
+/* --- Site layout -------------------------------------------- */
+#site {
+  display: flex !important;
+  align-items: flex-start;
+  float: none !important;
+}
+
+/* --- Left sidebar ------------------------------------------- */
+#left {
+  width: 210px !important;
+  min-width: 210px !important;
+  max-width: 210px !important;
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  padding: 20px 14px !important;
+  float: none !important;
+  min-height: calc(100vh - 80px);
+  flex-shrink: 0;
+}
+
+/* Partner/promo images */
+#left > a > img {
+  width: 100% !important;
+  max-width: 182px !important;
+  height: auto !important;
+  border-radius: 6px;
+  display: block;
+}
+
+/* "SEND BULK EMAILS" standalone link */
+#left > a[href*="bulk"] {
+  display: inline-block;
+  margin: 8px 0;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--primary) !important;
+  text-decoration: none;
+}
+
+#left > a[href*="bulk"]:hover { text-decoration: underline; }
+
+/* Sidebar section headings */
+#left h2 {
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--subtle) !important;
+  margin: 18px 0 6px !important;
+  padding-bottom: 6px !important;
+  border-bottom: 1px solid var(--border);
+}
+
+#left h2 a {
+  color: var(--subtle) !important;
+  text-decoration: none;
+}
+
+#left h2 a:hover { color: var(--primary) !important; }
+
+/* Sidebar nav lists */
+ul.liens {
+  list-style: none !important;
+  margin: 0 0 6px !important;
+  padding: 0 !important;
+}
+
+ul.liens li {
+  border-bottom: 1px solid #f1f5f9;
+  margin: 0;
+  padding: 0;
+}
+
+ul.liens li.end { border-bottom: none; }
+
+ul.liens li a {
+  display: block !important;
+  padding: 5px 4px !important;
+  font-size: 12px !important;
+  color: #334155 !important;
+  text-decoration: none !important;
+  border-radius: 4px;
+  transition: color 0.15s, background 0.15s, padding-left 0.15s;
+  white-space: normal;
+  line-height: 1.4;
+}
+
+ul.liens li a:hover {
+  color: var(--primary) !important;
+  background: #eff6ff;
+  padding-left: 8px !important;
+}
+
+ul.liens li a dfn {
+  font-style: normal;
+  color: var(--subtle);
+  font-size: 10px;
+  margin-right: 3px;
+}
+
+/* Sidebar ads */
+.pub {
+  margin: 14px 0;
+  text-align: center;
+}
+
+/* --- Content area ------------------------------------------- */
+#content {
+  flex: 1;
+  min-width: 0;
+  padding: 20px 24px !important;
+  float: none !important;
+  width: auto !important;
+}
+
+/* Inline top nav pills */
+ul.liensinline {
+  list-style: none !important;
+  margin: 0 0 18px !important;
+  padding: 0 !important;
+  display: flex !important;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+ul.liensinline li {
+  float: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+}
+
+ul.liensinline li a {
+  display: inline-block;
+  padding: 4px 11px;
+  font-size: 12px;
+  color: #334155;
+  text-decoration: none;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+
+ul.liensinline li a:hover {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+
+ul.liensinline li a dfn {
+  font-style: normal;
+  color: var(--subtle);
+  font-size: 10px;
+  margin-right: 2px;
+}
+
+ul.liensinline li a:hover dfn { color: rgba(255,255,255,0.65); }
+
+/* --- Marquee banner ----------------------------------------- */
+.marquee {
+  background: linear-gradient(90deg, #1e40af 0%, #2563eb 100%);
+  color: #fff;
+  border-radius: var(--radius);
+  padding: 9px 16px;
+  margin-bottom: 18px;
+  overflow: hidden;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.marquee .track { white-space: nowrap; }
+
+@keyframes scroll-left {
+  from { transform: translateX(40%); }
+  to   { transform: translateX(-100%); }
+}
+
+.marquee .track span {
+  display: inline-block;
+  animation: scroll-left 30s linear infinite;
+}
+
+/* --- Form card --------------------------------------------- */
+#toppage {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+#page {
+  padding: 24px !important;
+}
+
+/* Tiny h1 metadata line */
+#page > div > h1,
+#page h1[style*="font-size: 10px"] {
+  font-size: 10px !important;
+  color: var(--subtle) !important;
+  margin: -24px -24px 20px !important;
+  padding: 6px 16px !important;
+  background: #f8fafc;
+  border-bottom: 1px solid var(--border);
+  text-align: right !important;
+  font-weight: 400;
+}
+
+/* --- Tabs --------------------------------------------------- */
+#onglets {
+  list-style: none !important;
+  margin: 0 0 22px !important;
+  padding: 0 !important;
+  border-bottom: 2px solid var(--border);
+}
+
+#onglets li { display: inline-block; }
+
+#onglets li a {
+  display: inline-block;
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--primary);
+  border-bottom: 2px solid var(--primary);
+  margin-bottom: -2px;
+  text-decoration: none;
+  cursor: default;
+}
+
+/* --- Fieldset reset ----------------------------------------- */
+fieldset {
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* --- Two-column form layout --------------------------------- */
+.inputFieldDiv1,
+.inputFieldDiv2 {
+  display: inline-block !important;
+  vertical-align: top;
+  width: 49% !important;
+}
+
+.inputFieldDiv1 > div,
+.inputFieldDiv2 > div {
+  margin-bottom: 14px !important;
+  height: auto !important;        /* override inline style="height:50px" */
+  min-height: 50px;
+}
+
+/* --- Labels ------------------------------------------------- */
+label {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  color: #475569;
+  min-width: 130px;
+  margin-bottom: 2px;
+}
+
+.required {
+  color: var(--danger);
+  font-weight: 700;
+}
+
+/* --- Inputs, selects --------------------------------------- */
+input[type="text"],
+input[type="password"],
+input[type="email"],
+select {
+  border: 1px solid #cbd5e1 !important;
+  border-radius: 6px !important;
+  padding: 6px 10px !important;
+  font-size: 13px !important;
+  color: var(--text) !important;
+  background: var(--surface) !important;
+  font-family: var(--font) !important;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  outline: none !important;
+  background-image: none !important;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+select:focus {
+  border-color: var(--primary) !important;
+  box-shadow: 0 0 0 3px rgba(37,99,235,0.13) !important;
+}
+
+input[type="text"]:disabled,
+input[type="password"]:disabled,
+select:disabled {
+  background: var(--disabled) !important;
+  color: var(--subtle) !important;
+  border-color: var(--border) !important;
+  cursor: not-allowed;
+}
+
+/* Tooltip icons next to inputs */
+input + img[src*="question_mark"],
+a + img[src*="question_mark"] {
+  width: 16px !important;
+  height: 16px !important;
+  vertical-align: middle;
+  margin-left: 4px;
+  opacity: 0.45;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+input + img[src*="question_mark"]:hover,
+a + img[src*="question_mark"]:hover { opacity: 0.9; }
+
+/* Tooltip popups */
+div[id="dmail"], div[id="dmailcc"], div[id="dmailbcc"],
+div[id="obj"],   div[id="nname"],   div[id="EmailFrom"],
+div[id="EmailReplyEmail"], div[id="EmailReplyName"], div[id="realmail"] {
+  position: absolute;
+  background: #1e293b;
+  color: #f8fafc;
+  padding: 10px 14px;
+  border-radius: var(--radius);
+  font-size: 12px;
+  max-width: 280px;
+  z-index: 200;
+  line-height: 1.5;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+}
+
+/* --- Separator ---------------------------------------------- */
+.sep { height: 10px; }
+
+/* --- Checkboxes / Radios ------------------------------------ */
+.checkbox {
+  margin: 8px 0;
+  padding: 10px 14px;
+  background: #f8fafc;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 13px;
+  color: #334155;
+  line-height: 1.5;
+}
+
+.checkbox label {
+  font-weight: 400;
+  font-size: 13px;
+  min-width: auto;
+  display: inline;
+  color: #334155;
+}
+
+.checkbox input[type="checkbox"],
+.checkbox input[type="radio"] {
+  margin-right: 8px;
+  accent-color: var(--primary);
+  width: auto !important;
+  height: auto !important;
+  vertical-align: middle;
+}
+
+/* --- Advanced settings -------------------------------------- */
+#advanceSetting {
+  background: #f8fafc;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px !important;
+  margin-top: 8px;
+  margin-bottom: 20px;
+}
+
+#advanceSetting fieldset {
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius) !important;
+  padding: 16px !important;
+  margin-bottom: 16px !important;
+  background: var(--surface);
+  width: auto !important;
+}
+
+#advanceSetting legend {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  padding: 0 6px;
+  width: auto !important;
+}
+
+#advanceSetting .ldv {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+/* Advanced settings toggle button */
+button[onclick*="ShowAdvancedSetting"] {
+  background: var(--surface);
+  border: 1px solid #cbd5e1;
+  border-radius: var(--radius);
+  padding: 8px 22px !important;
+  font-size: 13px !important;
+  font-weight: 600;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.15s;
+  font-family: var(--font);
+}
+
+button[onclick*="ShowAdvancedSetting"]:hover {
+  background: #eff6ff;
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+/* --- Textarea (TinyMCE wrapper) ----------------------------- */
+.bigfield {
+  margin: 18px 0;
+}
+
+.bigfield textarea {
+  width: 100% !important;
+  min-height: 180px;
+  resize: vertical;
+  border: 1px solid #cbd5e1 !important;
+  border-radius: 6px !important;
+  padding: 10px !important;
+  font-size: 13px !important;
+  font-family: var(--font) !important;
+  color: var(--text) !important;
+  background: var(--surface) !important;
+}
+
+/* --- File inputs ------------------------------------------- */
+input[type="file"] {
+  font-size: 13px;
+  color: #475569;
+  padding: 4px 0;
+}
+
+.pjfile { display: none; }
+
+/* --- Submit buttons ---------------------------------------- */
+.submit {
+  display: flex !important;
+  gap: 12px;
+  align-items: center;
+  margin: 20px 0;
+  float: none !important;
+}
+
+.submit .free,
+.submit .pay {
+  float: none !important;
+  background: none !important;
+  border: none !important;
+  padding: 0 !important;
+}
+
+.submit .free input[type="submit"],
+.submit .pay  input[type="submit"] {
+  display: inline-block;
+  padding: 10px 28px !important;
+  border-radius: var(--radius) !important;
+  font-size: 14px !important;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+  text-indent: 0 !important;
+  font-family: var(--font);
+  width: auto !important;
+  height: auto !important;
+}
+
+.submit .free input[type="submit"] {
+  background: #f1f5f9 !important;
+  color: #475569 !important;
+  border: 1px solid #cbd5e1 !important;
+}
+
+.submit .free input[type="submit"]:hover {
+  background: #e2e8f0 !important;
+  color: var(--text) !important;
+}
+
+.submit .pay input[type="submit"] {
+  background: var(--primary) !important;
+  color: #ffffff !important;
+  border: none !important;
+  box-shadow: 0 2px 8px rgba(37,99,235,0.30);
+}
+
+.submit .pay input[type="submit"]:hover {
+  background: var(--primary-d) !important;
+  box-shadow: 0 4px 14px rgba(37,99,235,0.40);
+}
+
+/* --- Loading spinner --------------------------------------- */
+#loading {
+  text-align: center;
+  padding: 20px;
+}
+
+/* --- Bottom SEO text --------------------------------------- */
+div.center,
+#page + div.center {
+  font-size: 11px;
+  color: var(--subtle);
+  line-height: 1.7;
+  margin-top: 14px;
+  padding: 12px 16px;
+  border-top: 1px solid var(--border);
+}
+
+/* --- Footer ----------------------------------------------- */
+#footer {
+  background: #0f172a;
+  color: var(--subtle);
+  padding: 32px 24px !important;
+  font-size: 12px;
+  line-height: 1.8;
+  text-align: center;
+  float: none !important;
+  width: auto !important;
+}
+
+#footer a {
+  color: #64748b;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+#footer a:hover { color: #e2e8f0; }
+
+/* International links row */
+#yan-intls {
+  list-style: none !important;
+  margin: 0 0 20px !important;
+  padding: 0 !important;
+  display: flex !important;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px 10px;
+}
+
+#yan-intls li {
+  font-size: 12px;
+  color: #475569;
+  float: none !important;
+}
+
+#yan-intls li a {
+  color: #64748b;
+  padding: 2px 7px;
+  border-radius: 4px;
+  transition: all 0.15s;
+}
+
+#yan-intls li a:hover {
+  color: #fff;
+  background: rgba(255,255,255,0.09);
+}
+
+#footer img {
+  filter: brightness(0.85) saturate(0.7);
+  transition: filter 0.15s;
+}
+
+#footer img:hover { filter: brightness(1) saturate(1); }
+
+#footer p {
+  margin-top: 16px;
+  font-size: 11px;
+  color: #334155;
+}
